@@ -18,7 +18,7 @@ namespace Blogger1Database.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Blogger1Database.Models.Books", b =>
+            modelBuilder.Entity("Blogger1Database.Models.Book", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace Blogger1Database.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 #pragma warning restore 612, 618
         }

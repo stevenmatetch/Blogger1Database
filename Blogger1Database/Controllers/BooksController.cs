@@ -23,45 +23,45 @@ namespace Blogger1Database.Controllers
 
         // GET: api/Books
         [HttpGet]
-        public IEnumerable<Books> GetBooks()
+        public IEnumerable<Book> GetBook()
         {
-            return _context.Books;
+            return _context.Book;
         }
 
         // GET: api/Books/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBooks([FromRoute] int id)
+        public async Task<IActionResult> GetBook([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var books = await _context.Books.FindAsync(id);
+            var book = await _context.Book.FindAsync(id);
 
-            if (books == null)
+            if (book == null)
             {
                 return NotFound();
             }
 
-            return Ok(books);
+            return Ok(book);
         }
 
         // PUT: api/Books/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBooks([FromRoute] int id, [FromBody] Books books)
+        public async Task<IActionResult> PutBook([FromRoute] int id, [FromBody] Book book)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != books.ID)
+            if (id != book.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(books).State = EntityState.Modified;
+            _context.Entry(book).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +69,7 @@ namespace Blogger1Database.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BooksExists(id))
+                if (!BookExists(id))
                 {
                     return NotFound();
                 }
@@ -84,43 +84,43 @@ namespace Blogger1Database.Controllers
 
         // POST: api/Books
         [HttpPost]
-        public async Task<IActionResult> PostBooks([FromBody] Books books)
+        public async Task<IActionResult> PostBook([FromBody] Book book)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Books.Add(books);
+            _context.Book.Add(book);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBooks", new { id = books.ID }, books);
+            return CreatedAtAction("GetBook", new { id = book.ID }, book);
         }
 
         // DELETE: api/Books/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBooks([FromRoute] int id)
+        public async Task<IActionResult> DeleteBook([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var books = await _context.Books.FindAsync(id);
-            if (books == null)
+            var book = await _context.Book.FindAsync(id);
+            if (book == null)
             {
                 return NotFound();
             }
 
-            _context.Books.Remove(books);
+            _context.Book.Remove(book);
             await _context.SaveChangesAsync();
 
-            return Ok(books);
+            return Ok(book);
         }
 
-        private bool BooksExists(int id)
+        private bool BookExists(int id)
         {
-            return _context.Books.Any(e => e.ID == id);
+            return _context.Book.Any(e => e.ID == id);
         }
     }
 }

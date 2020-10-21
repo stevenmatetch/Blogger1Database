@@ -13,7 +13,8 @@ namespace Blogger1Database.Data
             : base(options)
         {
         }
+        public DbSet<Blogger1Database.Models.Book> Book { get; set; }
 
-        public DbSet<Blogger1Database.Models.Books> Books { get; set; }
+       
     }
 }

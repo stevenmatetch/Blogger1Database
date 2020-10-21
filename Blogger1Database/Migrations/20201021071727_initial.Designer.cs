@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blogger1Database.Migrations
 {
     [DbContext(typeof(Blogger1DatabaseContext))]
-    [Migration("20201020085344_Initial")]
-    partial class Initial
+    [Migration("20201021071727_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace Blogger1Database.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Blogger1Database.Models.Books", b =>
+            modelBuilder.Entity("Blogger1Database.Models.Book", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace Blogger1Database.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 #pragma warning restore 612, 618
         }

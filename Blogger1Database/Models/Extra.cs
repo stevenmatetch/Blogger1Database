@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 
 namespace Blogger1Database.Models
 {
-    public class Book
+    public class Extra
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public long Published { get; set; }
-        public string Picture { get; set; }
 
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Picture { get; set; }
     }
 }
